@@ -1,4 +1,7 @@
-class Scrabble::Scoring
+class Scoring
+
+attr_reader :word, :score
+
   BONUS = 50
   SCORES = {
     A: 1, E: 1, I: 1, O: 1, U: 1, L: 1, N: 1, R: 1, S: 1, T: 1, D: 2, G: 2,
@@ -6,6 +9,11 @@ class Scrabble::Scoring
     Q: 10, Z: 10
   }
 
+
+  # def initialize(word_scores = {})
+  #   @word = word_scores["word"]
+  #   # @score = word_scores["score"]
+  # end
 
   def self.score(word)
     if word.length > 7
@@ -21,29 +29,29 @@ class Scrabble::Scoring
     end
     return points
   end
-
-
-  def self.highest_score_from(array_of_words)
-    # => array_of_words = ["melissa", "cat"]
-    all_scores = []
-    array_of_words.each do |one_word|
-      all_scores << self.score(one_word)
-      # => all_scores = [59, 59, 4, 6]
-    end
-
-    pairs = all_scores.zip(array_of_words)
-    # example: [[59, "pull"], [43, "cat"], [59, "yes"], [3, "andrea"], [7, "carlos"]]
-    winners = []
-
-    pairs.each do |pair|
-      if pair[0] == pairs.max[0]
-        winners << pair
-      end
-    end
-     winners
-    tie_winner = winners.min_by do |winner|
-      winner[1].size
-    end
-    return tie_winner[1]
-  end
 end
+#
+#   def self.highest_score_from(array_of_words)
+#     # => array_of_words = ["melissa", "cat"]
+#     all_scores = []
+#     array_of_words.each do |one_word|
+#       all_scores << self.score(one_word)
+#       # => all_scores = [59, 59, 4, 6]
+#     end
+#
+#     pairs = all_scores.zip(array_of_words)
+#     # example: [[59, "pull"], [43, "cat"], [59, "yes"], [3, "andrea"], [7, "carlos"]]
+#     winners = []
+#
+#     pairs.each do |pair|
+#       if pair[0] == pairs.max[0]
+#         winners << pair
+#       end
+#     end
+#      winners
+#     tie_winner = winners.min_by do |winner|
+#       winner[1].size
+#     end
+#     return tie_winner[1]
+#   end
+# end
