@@ -1,1 +1,28 @@
-  <title>Score Multiple Words</title>
+<title>Score Multiple Words</title>
+
+<form action="" method="post" accept-charset="utf-8">
+
+  <label for="number">Enter a number (up to 10) of words to score: </label>
+  <input type="number" name="number" value="" min="1" max="10" id="number">
+
+  <br>
+  <% @number.to_i.times do %>
+  <label for="score-many">Enter a word to score: </label>
+  <input type="text" name="all_words[]" value="" id="score-many" required pattern="[A-Za-z]{1,7}" title="Enter up to 7 letters"><br>
+  <% end %>
+
+  <input type="submit" value="Submit">
+</form>
+
+
+<% @words_array.each do |key, value| %>
+ <% value.each do |word| %>
+   <% @word_score = Scoring.score(word) %>
+   <h2>
+   Word: word.upcase <br>
+   Score: @word_score
+   </h2>
+  <% end %>
+<% end %>
+
+<%= params %>

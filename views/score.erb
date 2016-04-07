@@ -7,5 +7,8 @@
   </form>
 
   <% if @score %>
-  <h2>Word: <%= @word %> Score: <%= @score %></h2>
+  <h2>
+    Word: <%= @word.upcase %> <br>
+    Score: <%= @score %>
+  </h2>
   <% end %>

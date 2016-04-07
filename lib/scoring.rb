@@ -19,28 +19,3 @@ class Scoring
     return points
   end
 end
-#
-#   def self.highest_score_from(array_of_words)
-#     # => array_of_words = ["melissa", "cat"]
-#     all_scores = []
-#     array_of_words.each do |one_word|
-#       all_scores << self.score(one_word)
-#       # => all_scores = [59, 59, 4, 6]
-#     end
-#
-#     pairs = all_scores.zip(array_of_words)
-#     # example: [[59, "pull"], [43, "cat"], [59, "yes"], [3, "andrea"], [7, "carlos"]]
-#     winners = []
-#
-#     pairs.each do |pair|
-#       if pair[0] == pairs.max[0]
-#         winners << pair
-#       end
-#     end
-#      winners
-#     tie_winner = winners.min_by do |winner|
-#       winner[1].size
-#     end
-#     return tie_winner[1]
-#   end
-# end

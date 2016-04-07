@@ -22,6 +22,8 @@ class ScrabbleApp < Sinatra::Base
   end
 
   post '/score-many' do
+    @number = params["number"]
+    @words_array = params["all_words"]
     erb :'score-many'
   end
 
