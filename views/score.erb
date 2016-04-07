@@ -1,32 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Scoring!</title>
-  <link rel="stylesheet" type ="css/text" href="stylesheets/styles.css">
-</head>
-
-<body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="/score">Scoring</a></li>
-        <li><a href="/">Scrabble Home</a></li>
-      </ul>
-    </nav>
-  </header>
+  <title>Score One Word</title>
 
   <form action="" method="post" accept-charset="utf-8">
     <label for="scoring">Enter a word: </label>
-    <input type="text" name="word" value="" id="scoring" maxlength="7">
+    <input type="text" name="word" value="" id="scoring" required pattern="[A-Za-z]{1,7}" title="Enter up to 7 letters">
     <input type="submit" value="Submit">
   </form>
 
   <% if @score %>
   <h2>Word: <%= @word %> Score: <%= @score %></h2>
   <% end %>
-
-  <footer>
-  </footer>
-</body>
-</html>

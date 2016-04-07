@@ -4,7 +4,7 @@ require_relative 'lib/scoring'
 class ScrabbleApp < Sinatra::Base
 
   get '/' do
-    erb :"home-page"
+    erb :'home-page'
   end
 
   get '/score' do
@@ -15,6 +15,14 @@ class ScrabbleApp < Sinatra::Base
     @word = params["word"]
     @score = Scoring.score(params["word"])
     erb :score
+  end
+
+  get '/score-many' do
+    erb :'score-many'
+  end
+
+  post '/score-many' do
+    erb :'score-many'
   end
 
 run!
