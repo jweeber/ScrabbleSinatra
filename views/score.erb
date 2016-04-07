@@ -16,17 +16,16 @@
     </nav>
   </header>
 
-  <!-- <% if @score %>
-    <p>Word: <%= @word %><br>Score: <%= @score %></p>
-  <% end %> -->
-  <div class="params">
-    <%= params %>
-  </div>
   <form action="" method="post" accept-charset="utf-8">
     <label for="scoring">Enter a word: </label>
-    <input type="text" name="word_scores[word]" value="" id="scoring">
+    <input type="text" name="word" value="" id="scoring" maxlength="7">
     <input type="submit" value="Submit">
   </form>
+
+  <% if @score %>
+  <h2>Word: <%= @word %> Score: <%= @score %></h2>
+  <% end %>
+
   <footer>
   </footer>
 </body>
