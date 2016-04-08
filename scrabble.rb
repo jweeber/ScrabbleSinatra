@@ -17,13 +17,20 @@ class ScrabbleApp < Sinatra::Base
     erb :score
   end
 
+
   get '/score-many' do
     erb :'score-many'
   end
 
   post '/score-many' do
-    @number = params["number"]
+    # @number = params["number"]
     @words_array = params["all_words"]
+
+    @scoring_hash = {}
+    @words_array.each do |word|
+       @scoring_hash[word] = Scoring.score(word)
+    end
+
     erb :'score-many'
   end
 

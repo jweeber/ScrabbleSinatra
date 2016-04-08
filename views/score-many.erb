@@ -6,7 +6,7 @@
   <input type="number" name="number" value="" min="1" max="10" id="number">
 
   <br>
-  <% @number.to_i.times do %>
+  <% 2.to_i.times do %>
   <label for="score-many">Enter a word to score: </label>
   <input type="text" name="all_words[]" value="" id="score-many" required pattern="[A-Za-z]{1,7}" title="Enter up to 7 letters"><br>
   <% end %>
@@ -14,15 +14,13 @@
   <input type="submit" value="Submit">
 </form>
 
-
-<% @words_array.each do |key, value| %>
- <% value.each do |word| %>
-   <% @word_score = Scoring.score(word) %>
-   <h2>
-   Word: word.upcase <br>
-   Score: @word_score
-   </h2>
+  <% if @scoring_hash %>
+    <% @scoring_hash.each do |word, score| %>
+     <h2>
+       Word: <%= word.upcase %>
+       Score:  <%= score %>
+     </h2>
+     <% end %>
   <% end %>
-<% end %>
 
 <%= params %>
