@@ -6,7 +6,7 @@
   <input type="number" name="number" value="" min="1" max="10" id="number">
 
   <br>
-  <% 2.to_i.times do %>
+  <% @number.to_i.times do %>
   <label for="score-many">Enter a word to score: </label>
   <input type="text" name="all_words[]" value="" id="score-many" required pattern="[A-Za-z]{1,7}" title="Enter up to 7 letters"><br>
   <% end %>
