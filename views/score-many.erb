@@ -8,7 +8,7 @@
 
 
 
-<form action="" method="post" accept-charset="utf-8">
+<form action="" method="post" accept-charset="utf-8" class="score-many">
 
   <h3><label for="number">Enter a number (up to 10) of words to score: </label></h3>
   <input type="number" name="number" value="" min="1" max="10" id="number" class="number">
@@ -16,7 +16,7 @@
   <br>
   <% @number.to_i.times do %>
   <h3><label for="score-many" class="one-word">Enter a word to score: </label></h3>
-  <input type="text" name="all_words[]" value="" id="score-many" pattern="[A-Za-z]{1,7}" title="Enter up to 7 letters"><br>
+  <input type="text" name="all_words[]" value="" id="score-many" pattern="[A-Za-z]{1,7}" title="Enter up to 7 letters" class="text-many"><br>
   <% end %>
   <form action="" method="put" accept-charset="utf-8">
 

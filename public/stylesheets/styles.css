@@ -14,13 +14,13 @@ header.title {
   text-align: center;
   margin-top: 5%;
   background-color: rgba(144, 133, 128, 0.8);
-  width: 50%;
+  width: 100%;
   font-size: 3em;
 }
 
 header.current-page {
   margin-bottom: 0;
-  width: 50%;
+  width: 100%;
   float: left;
   font-size: 1.5em;
 }
@@ -74,7 +74,6 @@ h2 {
 }
 
 h2.word-score {
-  /*clear: both;*/
   text-align: center;
   margin-top: 2%;
   margin-bottom: 1%;
@@ -95,14 +94,25 @@ p.sub-heading {
 
 .number {
   height: 2em;
-  width: 5em;
+  width: 11em;
   font-size: 15px;
   text-align: center;
-  margin-top: 2%;
 
 }
 
+.text-many {
+  height: 3em;
+  width: 15em;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 1%;
+}
+
+
 input[type="submit"] {
+  height: 3em;
+  width: 15em;
+  margin-top: 1%;
   border-style: solid;
 }
 
@@ -128,7 +138,7 @@ div.letters p {
   text-align: center;
   font-size: 20px;
   display: inline;
-  padding-left: 0;
+  padding-left: 2%;
 }
 
 
@@ -153,9 +163,17 @@ body:after {
   background-attachment: fixed;
 }
 
-form {
-  width: 50%;
+form.score-one {
   display: block;
+  width: 50%;
+  float: left;
+  clear: both;
+
+}
+
+form.score-many {
+  width: 100%;
+  display: inline-block;
   float: left;
   clear: both;
 }
