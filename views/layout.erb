@@ -5,25 +5,38 @@
   <link rel="stylesheet" type ="css/text" href="../stylesheets/styles.css">
   <link href='https://fonts.googleapis.com/css?family=Titillium+Web:600,400italic,400' rel='stylesheet' type='text/css'>
 </head>
+<div class="wrapper">
 
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/score">Score One Word</a></li>
-        <li><a href="/score-many">Score Multiple Words</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
 
-    <%= yield %>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/score">Score One Word</a></li>
+          <li><a href="/score-many">Score Multiple Words</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  </main>
+    <div class="content">
 
-  <footer>
-  </footer>
+      <main>
+
+        <%= yield %>
+
+      </main>
+    </div>
+
+    <div class="footer">
+
+      <footer>
+        <!-- <img alt="stencil of frank sinatra" src="../images/sinatra.jpg">
+        <% yield %> -->
+      </footer>
+    </div>
+
+  </div>
 </body>
 </html>

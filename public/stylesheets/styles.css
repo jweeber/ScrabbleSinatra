@@ -9,8 +9,24 @@
 
 /* header, navigation bar, navigation links */
 
+/*div.wrapper {
+  min-height: 100%;
+  position: relative;
+}*/
+
+/*html body:before {
+  min-height: 100%;
+  position: relative;
+}*/
+
+/*div.wrapper:before {
+  position: relative;
+  min-height: 100%;
+  bottom: 0;
+}*/
 
 header.title {
+  position: fixed;
   text-align: center;
   margin-top: 5%;
   background-color: rgba(144, 133, 128, 0.8);
@@ -63,9 +79,10 @@ a {
 
 
 main.current-page {
+  position: relative;
   background-color: rgba(144, 133, 128, 0.9);
   padding: 3em;
-  overflow: auto;
+  overflow: hidden;
 }
 
 h2 {
@@ -177,3 +194,19 @@ form.score-many {
   float: left;
   clear: both;
 }
+
+
+
+/*div.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+div.footer img {
+  height: 15%;
+  width: 10%;
+  opacity: 0.6;
+  margin: 0 2% 0 1%;
+  /*float: left;*/
+}*/
