@@ -14,6 +14,8 @@ class ScrabbleApp < Sinatra::Base
   post '/score' do
     @word = params["word"]
     @score = Scoring.score(params["word"])
+    @points = Scoring::SCORES
+    @bonus = Scoring::BONUS if @word.length == 7
     erb :score
   end
 
@@ -32,7 +34,6 @@ class ScrabbleApp < Sinatra::Base
         @scoring_hash[word] = Scoring.score(word)
       end
     end
-
     erb :'score-many'
   end
 

@@ -1,14 +1,41 @@
   <title>Score One Word</title>
+<main class="current-page">
 
-  <form action="" method="post" accept-charset="utf-8">
-    <label for="scoring">Enter a word: </label>
-    <input type="text" name="word" value="" id="scoring" required pattern="[A-Za-z]{1,7}" title="Enter up to 7 letters">
-    <input type="submit" value="Submit">
+<header class="current-page">
+  <h1 class="other-pages">Score One Word!</h1>
+</header>
+
+
+  <form action="" method="post" accept-charset="utf-8" class="score-form">
+    <h2><label for="scoring">Enter a word: </h2>
+    </label>
+    <p class="sub-heading">(1-7 letters)</p>
+    <input type="text" name="word" value="" id="scoring" pattern="[A-Za-z]{1,7}" title="Enter up to 7 letters">
+    <br>
+    <input type="submit" value="Score It!">
   </form>
 
+
+
   <% if @score %>
-  <h2>
-    Word: <%= @word.upcase %> <br>
-    Score: <%= @score %>
-  </h2>
+
+    <h2 class="word-score">
+      Word: <%= @word.upcase %> <br>
+      Score: <%= @score %>
+    </h2>
+    <% if @bonus %>
+    <p>50 bonus points for a 7-letter word!</p>
+    <% end %>
+
   <% end %>
+
+<% if @word %>
+  <% @word.upcase.split(//).each do |l| %>
+    <% @points.each do |letter, points| %>
+      <% if letter.to_s.include?(l) %>
+          <p><%= letter %>: <%= points %></p>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+</main>
