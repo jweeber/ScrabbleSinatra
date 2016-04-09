@@ -1,9 +1,9 @@
-  <title>Score One Word</title>
+<title>Score One Word</title>
 <main class="current-page">
 
-<header class="current-page">
-  <h1 class="other-pages">Score One Word!</h1>
-</header>
+  <header class="current-page">
+    <h1 class="other-pages">Score One Word!</h1>
+  </header>
 
 
   <form action="" method="post" accept-charset="utf-8" class="score-form">
@@ -16,26 +16,31 @@
   </form>
 
 
-
-  <% if @score %>
-
+  <div>
+    <% if @score %>
     <h2 class="word-score">
       Word: <%= @word.upcase %> <br>
       Score: <%= @score %>
     </h2>
+    <% end %>
+  </div>
+
+  <div class="points">
+
     <% if @bonus %>
-    <p>50 bonus points for a 7-letter word!</p>
+    <p>50 bonus points for a 7-letter word!</p><br>
     <% end %>
 
-  <% end %>
-
-<% if @word %>
-  <% @word.upcase.split(//).each do |l| %>
+    <% if @word %>
+    <% @word.upcase.split(//).each do |l| %>
     <% @points.each do |letter, points| %>
-      <% if letter.to_s.include?(l) %>
-          <p><%= letter %>: <%= points %></p>
-      <% end %>
+    <% if letter.to_s.include?(l) %>
+    <p><span class="beige-color"><%= letter %></span>: <strong><%= points %></strong></p>
     <% end %>
-  <% end %>
-<% end %>
+    <% end %>
+    <% end %>
+    <% end %>
+
+  </div>
+
 </main>

@@ -62,7 +62,7 @@ a {
 
 
 main.current-page {
-  background-color: rgba(144, 133, 128, 0.8);
+  background-color: rgba(144, 133, 128, 0.9);
   padding: 3em;
   overflow: auto;
 }
@@ -73,9 +73,10 @@ h2 {
 }
 
 h2.word-score {
-  float: right;
+  padding-left: 20%;
   margin-top: 8%;
-  margin-right: 30%;
+  margin-bottom: 2%;
+  margin-left: 10%;
 }
 
 p.sub-heading {
@@ -93,6 +94,18 @@ input {
 
 input[type="submit"] {
   border-style: solid;
+}
+
+div.points p {
+  font-size: 20px;
+  display: inline;
+  padding-left: 4%;
+}
+
+.beige-color {
+  font-weight: bold;
+  color: #fae0c2;
+  letter-spacing: 5px;
 }
 
 body:after {
