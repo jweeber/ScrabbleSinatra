@@ -14,13 +14,14 @@ header.title {
   text-align: center;
   margin-top: 5%;
   background-color: rgba(144, 133, 128, 0.8);
-  width: 100%;
+  width: 50%;
   font-size: 3em;
 }
 
 header.current-page {
   margin-bottom: 0;
-  width: 100%;
+  width: 50%;
+  float: left;
   font-size: 1.5em;
 }
 
@@ -73,10 +74,10 @@ h2 {
 }
 
 h2.word-score {
-  padding-left: 18%;
-  margin-top: 8%;
+  /*clear: both;*/
+  text-align: center;
+  margin-top: 2%;
   margin-bottom: 1%;
-  margin-left: 10%;
 }
 
 p.sub-heading {
@@ -105,23 +106,31 @@ input[type="submit"] {
   border-style: solid;
 }
 
+
+div.points {
+  clear: right;
+  text-align: center;
+
+}
+
 div.points p {
   font-size: 20px;
   display: inline;
   padding-left: 2%;
 }
 
-div.points {
-  float: left;
-  margin-top: 20%
-
+div.letters {
+  text-align: center;
+  padding: 0;
 }
 
-div.points-centered p {
+div.letters p {
+  text-align: center;
   font-size: 20px;
   display: inline;
-  padding-left: 5%;
+  padding-left: 0;
 }
+
 
 .beige-color {
   font-weight: bold;
@@ -145,6 +154,8 @@ body:after {
 }
 
 form {
+  width: 50%;
   display: block;
   float: left;
+  clear: both;
 }

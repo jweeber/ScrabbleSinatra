@@ -29,8 +29,9 @@
        Word: <%= word.upcase %>
        Score:  <%= score %>
      </h2>
-     <div class="points-centered">
+     <div>
 
+       <div class="letters">
        <% if word.length == 7 %>
        <p>50 bonus points for a 7-letter word!</p><br>
        <% end %>
@@ -42,6 +43,8 @@
        <% end %>
        <% end %>
        <% end %>
+     </div>
+
 
      </div>
 
