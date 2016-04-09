@@ -73,9 +73,9 @@ h2 {
 }
 
 h2.word-score {
-  padding-left: 20%;
+  padding-left: 18%;
   margin-top: 8%;
-  margin-bottom: 2%;
+  margin-bottom: 1%;
   margin-left: 10%;
 }
 
@@ -84,12 +84,21 @@ p.sub-heading {
   margin-top: 0;
 }
 
-input {
+.one-word {
   height: 3em;
   width: 15em;
   font-size: 20px;
   text-align: center;
   margin-top: 2%;
+}
+
+.number {
+  height: 2em;
+  width: 5em;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 2%;
+
 }
 
 input[type="submit"] {
@@ -99,13 +108,25 @@ input[type="submit"] {
 div.points p {
   font-size: 20px;
   display: inline;
-  padding-left: 4%;
+  padding-left: 2%;
+}
+
+div.points {
+  float: left;
+  margin-top: 20%
+
+}
+
+div.points-centered p {
+  font-size: 20px;
+  display: inline;
+  padding-left: 5%;
 }
 
 .beige-color {
   font-weight: bold;
   color: #fae0c2;
-  letter-spacing: 5px;
+  letter-spacing: 3px;
 }
 
 body:after {

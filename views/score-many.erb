@@ -1,40 +1,54 @@
 <title>Score Multiple Words</title>
 
-<header class="title">
-  <h1>Score Multiple Words</h1>
+<main class="current-page">
 
-  <nav class="current-page">
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/score">Score One Word</a></li>
-      <li><a href="/score-many">Score Multiple Words</a></li>
-    </ul>
-  </nav>
+  <header class="current-page">
+    <h1 class="other-pages">Score Multiple Words!</h1>
+  </header>
 
-</header>
 
 
 <form action="" method="post" accept-charset="utf-8">
 
-  <label for="number">Enter a number (up to 10) of words to score: </label>
-  <input type="number" name="number" value="" min="1" max="10" id="number">
+  <h3><label for="number">Enter a number (up to 10) of words to score: </label></h3>
+  <input type="number" name="number" value="" min="1" max="10" id="number" class="number">
 
   <br>
   <% @number.to_i.times do %>
-  <label for="score-many">Enter a word to score: </label>
-  <input type="text" name="all_words[]" value="" id="score-many" required pattern="[A-Za-z]{1,7}" title="Enter up to 7 letters"><br>
+  <h3><label for="score-many" class="one-word">Enter a word to score: </label></h3>
+  <input type="text" name="all_words[]" value="" id="score-many" pattern="[A-Za-z]{1,7}" title="Enter up to 7 letters"><br>
   <% end %>
+  <form action="" method="put" accept-charset="utf-8">
 
-  <input type="submit" value="Submit">
+  <input type="submit" value="Enter!">
 </form>
 
   <% if @scoring_hash %>
     <% @scoring_hash.each do |word, score| %>
-     <h2>
+     <h2 class="word-score">
        Word: <%= word.upcase %>
        Score:  <%= score %>
      </h2>
+     <div class="points-centered">
+
+       <% if word.length == 7 %>
+       <p>50 bonus points for a 7-letter word!</p><br>
+       <% end %>
+
+       <% word.upcase.split(//).each do |l| %>
+       <% @points.each do |letter, points| %>
+       <% if letter.to_s.include?(l) %>
+       <p><span class="beige-color"><%= letter %></span>: <strong><%= points %></strong></p>
+       <% end %>
+       <% end %>
+       <% end %>
+
+     </div>
+
      <% end %>
   <% end %>
 
-<%= params %>
+
+
+
+</main>
