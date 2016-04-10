@@ -10,7 +10,7 @@
     <h2><label for="scoring">Enter a word: </h2>
     </label>
     <p class="sub-heading">(1-7 letters)</p>
-    <input type="text" name="word" value="" id="scoring" pattern="[A-Za-z]{1,7}" title="Enter up to 7 letters" class="one-word">
+    <input type="text" name="word" value="" id="scoring" pattern="[A-Za-z]{2,7}" title="Enter up to 7 letters" class="one-word">
     <br>
     <input type="submit" value="Score It!" class="one-word">
   </form>
@@ -31,7 +31,7 @@
     <p>50 bonus points for a 7-letter word!</p><br>
     <% end %>
 
-    <% if @word %>
+    <% if @error == "" && @word != nil %>
     <% @word.upcase.split(//).each do |l| %>
     <% @points.each do |letter, points| %>
     <% if letter.to_s.include?(l) %>
@@ -39,6 +39,8 @@
     <% end %>
     <% end %>
     <% end %>
+    <% else %>
+      <%= @error %>
     <% end %>
 
   </div>
