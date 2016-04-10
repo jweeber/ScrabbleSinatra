@@ -5,7 +5,7 @@ require 'pry' # used pry for some debugging
 class ScrabbleApp < Sinatra::Base
 
   get '/' do
-    erb :'home-page'
+    erb :index
   end
 
   get '/score' do
