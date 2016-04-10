@@ -20,8 +20,8 @@
     <% end %>
     <form action="" method="put" accept-charset="utf-8">
 
-      <input type="submit" value="Enter!">
-    </form>
+      <input type="submit" value="Score It!">
+  </form>
 
     <% if @scoring_hash %>
     <% @scoring_hash.each do |word, score| %>
@@ -48,5 +48,11 @@
 
     <% end %>
     <% end %>
-      
-  </main>
+
+    <footer>
+      <p class="footer-text">Scrabble Scoring!
+        <span class="sub-heading">with sinatra</span></p>
+      </footer>
+
+
+</main>
