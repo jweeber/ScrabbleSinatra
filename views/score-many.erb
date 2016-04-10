@@ -8,50 +8,45 @@
 
 
 
-<form action="" method="post" accept-charset="utf-8" class="score-many">
+  <form action="" method="post" accept-charset="utf-8" class="score-many">
 
-  <h3><label for="number">Enter a number (up to 10) of words to score: </label></h3>
-  <input type="number" name="number" value="" min="1" max="10" id="number" class="number">
+    <h3><label for="number">Enter a number (up to 10) of words to score: </label></h3>
+    <input type="number" name="number" value="" min="1" max="10" id="number" class="number">
 
-  <br>
-  <% @number.to_i.times do %>
-  <h3><label for="score-many" class="one-word">Enter a word to score: </label></h3>
-  <input type="text" name="all_words[]" value="" id="score-many" pattern="[A-Za-z]{2,7}" title="Enter 2 to 7 letters" class="text-many"><br>
-  <% end %>
-  <form action="" method="put" accept-charset="utf-8">
+    <br>
+    <% @number.to_i.times do %>
+    <h3><label for="score-many" class="one-word">Enter a word to score: </label></h3>
+    <input type="text" name="all_words[]" value="" id="score-many" pattern="[A-Za-z]{2,7}" title="Enter 2 to 7 letters" class="text-many"><br>
+    <% end %>
+    <form action="" method="put" accept-charset="utf-8">
 
-  <input type="submit" value="Enter!">
-</form>
+      <input type="submit" value="Enter!">
+    </form>
 
-  <% if @scoring_hash %>
+    <% if @scoring_hash %>
     <% @scoring_hash.each do |word, score| %>
-     <h2 class="word-score">
-       Word: <%= word.upcase %>
-       Score:  <%= score %>
-     </h2>
-     <div>
+    <h2 class="word-score">
+      Word: <%= word.upcase %>
+      Score:  <%= score %>
+    </h2>
 
-       <div class="letters">
-       <% if word.length == 7 %>
-       <p>50 bonus points for a 7-letter word!</p><br>
-       <% end %>
+    <div>
+      <div class="letters">
+        <% if word.length == 7 %>
+        <p>50 bonus points for a 7-letter word!</p><br>
+        <% end %>
 
-       <% word.upcase.split(//).each do |l| %>
-       <% @points.each do |letter, points| %>
-       <% if letter.to_s.include?(l) %>
-       <p><span class="beige-color"><%= letter %></span>: <strong><%= points %></strong></p>
-       <% end %>
-       <% end %>
-       <% end %>
-     </div>
+        <% word.upcase.split(//).each do |l| %>
+        <% @points.each do |letter, points| %>
+        <% if letter.to_s.include?(l) %>
+        <p><span class="beige-color"><%= letter %></span>: <strong><%= points %></strong></p>
+        <% end %>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
 
-
-     </div>
-
-     <% end %>
-  <% end %>
-
-
-
-
-</main>
+    <% end %>
+    <% end %>
+      
+  </main>

@@ -1,6 +1,6 @@
 require 'sinatra'
 require_relative 'lib/scoring'
-require 'pry'
+require 'pry' # used pry for some debugging
 
 class ScrabbleApp < Sinatra::Base
 
@@ -23,12 +23,11 @@ class ScrabbleApp < Sinatra::Base
 
   get '/score/:word' do
     @word = params["word"]
+    @error = ""
     if /[a-zA-Z]/.match(@word) && @word.length >= 2 && @word.length <= 7
       @score = Scoring.score(@word)
       @points = Scoring::SCORES
       @bonus = Scoring::BONUS if @word.length == 7
-      @error = ""
-
     else
       @error = "You can only enter 2-7 letters!"
     end
@@ -38,7 +37,6 @@ class ScrabbleApp < Sinatra::Base
   get '/score-many' do
     erb :'score-many'
   end
-
 
   post '/score-many' do
     @number = params["number"]
@@ -51,6 +49,7 @@ class ScrabbleApp < Sinatra::Base
         @scoring_hash[word] = Scoring.score(word)
       end
     end
+
     erb :'score-many'
   end
 

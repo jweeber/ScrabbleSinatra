@@ -33,7 +33,7 @@
       <p>50 bonus points for a 7-letter word!</p><br>
     <% end %>
 
-    <% if @word != nil %>
+    <% if @word != nil && @error == "" %>
       <% @word.upcase.split(//).each do |l| %>
         <% @points.each do |letter, points| %>
           <% if letter.to_s.include?(l) %>
@@ -43,9 +43,6 @@
           <% end %>
         <% end %>
         <% end %>
-
-
-
 
   </div>
 
