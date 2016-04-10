@@ -12,27 +12,28 @@ class ScrabbleApp < Sinatra::Base
     erb :score
   end
 
-
   post '/score' do
     @word = params["word"]
     @score = Scoring.score(params["word"])
     @points = Scoring::SCORES
     @bonus = Scoring::BONUS if @word.length == 7
+    @error = ""
     erb :score
   end
 
   get '/score/:word' do
     @word = params["word"]
     if /[a-zA-Z]/.match(@word) && @word.length >= 2 && @word.length <= 7
-    @score = Scoring.score(@word)
-    @points = Scoring::SCORES
-    @bonus = Scoring::BONUS if @word.length == 7
-  else
-    @error = "Only enter 3-7 letters!"
-  end
-  erb :score
-  end
+      @score = Scoring.score(@word)
+      @points = Scoring::SCORES
+      @bonus = Scoring::BONUS if @word.length == 7
+      @error = ""
 
+    else
+      @error = "You can only enter 2-7 letters!"
+    end
+    erb :score
+  end
 
   get '/score-many' do
     erb :'score-many'
@@ -53,5 +54,5 @@ class ScrabbleApp < Sinatra::Base
     erb :'score-many'
   end
 
-run!
+  run!
 end

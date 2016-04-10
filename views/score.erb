@@ -9,39 +9,43 @@
   <form action="" method="post" accept-charset="utf-8" class="score-one">
     <h2><label for="scoring">Enter a word: </h2>
     </label>
-    <p class="sub-heading">(1-7 letters)</p>
-    <input type="text" name="word" value="" id="scoring" pattern="[A-Za-z]{2,7}" title="Enter up to 7 letters" class="one-word">
+    <p class="sub-heading">(2-7 letters)</p>
+    <input type="text" name="word" value="" id="scoring" pattern="[A-Za-z]{2,7}" title="Enter 2 to 7 letters" class="one-word">
     <br>
     <input type="submit" value="Score It!" class="one-word">
   </form>
 
 
   <div>
-    <% if @score %>
+    <% if @error == "" %>
     <h2 class="word-score">
       Word: <%= @word.upcase %> <br>
       Score: <%= @score %>
     </h2>
+    <% else %>
+      <h2><%= @error %></h2>
     <% end %>
   </div>
 
   <div class="points">
 
     <% if @bonus %>
-    <p>50 bonus points for a 7-letter word!</p><br>
+      <p>50 bonus points for a 7-letter word!</p><br>
     <% end %>
 
-    <% if @error == "" && @word != nil %>
-    <% @word.upcase.split(//).each do |l| %>
-    <% @points.each do |letter, points| %>
-    <% if letter.to_s.include?(l) %>
-    <p><span class="beige-color"><%= letter %></span>: <strong><%= points %></strong></p>
-    <% end %>
-    <% end %>
-    <% end %>
-    <% else %>
-      <%= @error %>
-    <% end %>
+    <% if @word != nil %>
+      <% @word.upcase.split(//).each do |l| %>
+        <% @points.each do |letter, points| %>
+          <% if letter.to_s.include?(l) %>
+            <p><span class="beige-color"><%= letter %></span>:
+              <strong><%= points %></strong></p>
+            <% end %>
+          <% end %>
+        <% end %>
+        <% end %>
+
+
+
 
   </div>
 
